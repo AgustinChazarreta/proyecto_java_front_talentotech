@@ -30,6 +30,9 @@ function listarArticulos() {
                     <td>${articulo.id}</td>
                     <td>${articulo.nombre}</td>
                     <td>${articulo.precio.toFixed(2)}</td>
+                    <td>${articulo.descripcion || "N/A"}</td>
+                    <td>${articulo.marca || "N/A"}</td>
+                    <td>${articulo.stock || 0}</td>
                     <td>
                         <button class="btn btn-warning btn-sm" onclick="editarArticulo(${articulo.id})">Editar</button>
                         <button class="btn btn-danger btn-sm" onclick="eliminarArticulo(${articulo.id})">Eliminar</button>
@@ -49,15 +52,23 @@ function guardarArticulo(event) {
     const id = document.getElementById("idArticulo").value;
     const nombre = document.getElementById("nombre").value.trim();
     const precio = parseFloat(document.getElementById("precio").value);
+    const descripcion = document.getElementById("descripcion").value.trim();
+    const marca = document.getElementById("marca").value.trim();
+    const stock = parseInt(document.getElementById("stock").value) || 0; // Si no se ingresa stock, por defecto será 0
 
     // Validación de campos
     if (!nombre || isNaN(precio) || precio < 0) {
         alert("Por favor complete correctamente los campos.");
         return;
     }
+    // Si el precio es negativo, mostramos un mensaje de error
+    if (precio < 0) {
+        alert("El precio no puede ser negativo.");
+        return;
+    }
 
     // Creamos un objeto artículo con los datos del formulario
-    const articulo = { nombre, precio };
+    const articulo = { nombre, precio, descripcion, marca, stock };
     // Determinamos si es una edición (PUT) o creación (POST)
     const url = id ? `${API_URL}/${id}` : API_URL;
     const metodo = id ? "PUT" : "POST";
@@ -91,6 +102,10 @@ function editarArticulo(id) {
             document.getElementById("idArticulo").value = articulo.id;
             document.getElementById("nombre").value = articulo.nombre;
             document.getElementById("precio").value = articulo.precio;
+            document.getElementById("descripcion").value = articulo.descripcion || "";
+            document.getElementById("marca").value = articulo.marca || "";
+            document.getElementById("stock").value = articulo.stock ?? 0;
+
         })
         .catch(error => console.error("Error al obtener artículo:", error)); // Manejo de errores
 }

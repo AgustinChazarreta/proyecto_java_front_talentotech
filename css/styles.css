@@ -1,3 +1,65 @@
 body {
-    background-color: #f8f9fa;
+    background-color: #e9ecef; /* Color de fondo suave y claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
+    color: #343a40; /* Color de texto oscuro */
+}
+
+h1 {
+    color: #0056b3; /* Color gris oscuro para el título */
+    font-weight: bold; /* Negrita para el título */
+    font-size: 2.5rem; /* Tamaño de fuente más grande */
+}
+
+.form-label {
+    color: #2a2f33; /* Color gris oscuro para las etiquetas */
+    font-weight: 500; /* Peso de fuente medio para las etiquetas */
+    font-size: 1.1rem; /* Tamaño de fuente estándar */
+}
+
+.form-control {
+    border: 1px solid #ced4da; /* Borde gris claro */
+    border-radius: 0.25rem; /* Bordes redondeados */
+    transition: border-color 0.2s; /* Transición suave para el borde */
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Color azul al enfocar el campo */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra azul al enfocar */
+}
+
+.btn-primary {
+    background-color: #0056b3; /* Color azul más oscuro para el botón */
+    border: none; /* Sin borde */
+}
+
+.btn-primary:hover {
+    background-color: #004085; /* Color azul más oscuro al pasar el mouse */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Color gris para el botón secundario */
+    border: none; /* Sin borde */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Color gris más oscuro al pasar el mouse */
+}
+
+.table {
+    background-color: #ffffff; /* Fondo blanco para la tabla */
+    border-radius: 0.25rem; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para la tabla */
+}
+
+.table-dark {
+    background-color: #343a40; /* Fondo oscuro para el encabezado de la tabla */
+    color: white; /* Texto blanco para el encabezado */
+}
+
+.table th, .table td {
+    vertical-align: middle; /* Alinear verticalmente el contenido */
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1; /* Color de fondo al pasar el mouse */
 }
